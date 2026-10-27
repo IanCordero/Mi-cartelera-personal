@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Mi Cartelera Personal",
+    "slug": "mi-cartelera-personal",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0E17",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "scheme": "micartelera",
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

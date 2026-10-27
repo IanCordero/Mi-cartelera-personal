@@ -1,0 +1,54 @@
+{
+  "name": "mi-cartelera-personal",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/netinfo": "12.0.1",
+    "@react-navigation/bottom-tabs": "^7",
+    "@react-navigation/native": "^7",
+    "@react-navigation/native-stack": "^7",
+    "expo": "~58.0.19",
+    "expo-font": "~58.0.10",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-status-bar": "~58.0.4",
+    "firebase": "^12",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-svg": "15.16.0",
+    "react-native-web": "^0.21.4"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^5",
+    "@types/node": "^26.6.5",
+    "@types/react": "~19.3.0",
+    "eslint": "^9",
+    "eslint-config-expo": "~58.0.4",
+    "firebase-tools": "^15.34.1",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "dev": "expo start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "node --import tsx --test tests/validation.test.ts tests/tmdb.test.ts",
+    "test:rules": "firebase emulators:exec --only firestore --project demo-cartelera \"node --test tests/firestore.rules.test.mjs\"",
+    "check:tmdb": "node --env-file=.env scripts/verificar-tmdb.mjs",
+    "doctor": "npx expo-doctor",
+    "export:android": "expo export --platform android",
+    "export:web": "expo export --platform web"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

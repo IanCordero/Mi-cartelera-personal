@@ -1,0 +1,53 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.2 /workspace/scratch/618ae1361921/mi-anio-en-cine
+
+ ❯ src/tema/coloresFijos.test.ts (1 test | 1 failed) 16ms
+   × ningún archivo de la app fuera de src/tema escribe un color hexadecimal 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/tema/coloresFijos.test.ts > ningún archivo de la app fuera de src/tema escribe un color hexadecimal
+AssertionError: Mover estos valores a src/tema según DESIGN.md; no excluir archivos ni desactivar el sensor.: expected [ …(18) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "src/components/TmdbLogo.tsx:4 #90cea1",
++   "src/components/TmdbLogo.tsx:4 #3cbec9",
++   "src/components/TmdbLogo.tsx:4 #00b3e5",
++   "src/components/UI.tsx:9 #3D2131",
++   "src/components/UI.tsx:23 #723C4C",
++   "src/screens/EditarScreen.tsx:66 #000000BB",
++   "src/screens/LoginScreen.tsx:28 #34305A",
++   "src/screens/LoginScreen.tsx:28 #151B2A",
++   "src/theme/index.ts:2 #0B0E17",
++   "src/theme/index.ts:2 #151B2A",
++   "src/theme/index.ts:2 #1D2538",
++   "src/theme/index.ts:2 #2D374D",
++   "src/theme/index.ts:2 #F4F5FA",
++   "src/theme/index.ts:3 #A4AEC4",
++   "src/theme/index.ts:3 #AEABFF",
++   "src/theme/index.ts:3 #34315C",
++   "src/theme/index.ts:3 #8DE0BD",
++   "src/theme/index.ts:3 #FF9AAB",
++ ]
+
+ ❯ src/tema/coloresFijos.test.ts:30:5
+     28|     infracciones,
+     29|     'Mover estos valores a src/tema según DESIGN.md; no excluir archiv…
+     30|   ).toEqual([]);
+       |     ^
+     31| });
+     32|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  22:53:39
+   Duration  289ms (transform 39%, tests 26%, import 25%, worker 10%)
+

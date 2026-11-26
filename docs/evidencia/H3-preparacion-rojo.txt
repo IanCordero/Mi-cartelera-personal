@@ -1,0 +1,26 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.2 /workspace/scratch/618ae1361921/mi-anio-en-cine
+
+ ❯ src/services/preparacionService.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/services/preparacionService.test.ts [ src/services/preparacionService.test.ts ]
+Error: Cannot find module './preparacionService' imported from /workspace/scratch/618ae1361921/mi-anio-en-cine/src/services/preparacionService.test.ts
+ ❯ src/services/preparacionService.test.ts:5:1
+      3| import type { ItemLista, MetadatosObra } from '../types';
+      4| import { TiempoAgotado } from '../utils/errors';
+      5| import {
+       | ^
+      6|   prepararResumen,
+      7|   type DependenciasPreparacion,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  23:05:17
+   Duration  267ms (worker 96%, environment 4%)
+

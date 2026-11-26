@@ -1,0 +1,52 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+ RUN  v5.1.2 /workspace/scratch/618ae1361921/mi-anio-en-cine
+
+ ❯ src/dominio/resumenAnual.test.ts (0 test)
+ ❯ src/dominio/metadatos.test.ts (0 test)
+ ❯ src/dominio/visionado.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/dominio/metadatos.test.ts [ src/dominio/metadatos.test.ts ]
+Error: Cannot find module './metadatos' imported from /workspace/scratch/618ae1361921/mi-anio-en-cine/src/dominio/metadatos.test.ts
+ ❯ src/dominio/metadatos.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2| import { antigua, obra } from '../../tests/fixtures/cartelera';
+      3| import { datosCompletos, normalizarMetadatos } from './metadatos';
+       | ^
+      4|
+      5| describe('Metadatos · D5 y D6', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/dominio/resumenAnual.test.ts [ src/dominio/resumenAnual.test.ts ]
+Error: Cannot find module './resumenAnual' imported from /workspace/scratch/618ae1361921/mi-anio-en-cine/src/dominio/resumenAnual.test.ts
+ ❯ src/dominio/resumenAnual.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2| import { antigua, obra } from '../../tests/fixtures/cartelera';
+      3| import { aniosDisponibles, planificarPreparacion, resumenAnual } from …
+       | ^
+      4| const ZONA = 'America/Guayaquil';
+      5|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/dominio/visionado.test.ts [ src/dominio/visionado.test.ts ]
+Error: Cannot find module './visionado' imported from /workspace/scratch/618ae1361921/mi-anio-en-cine/src/dominio/visionado.test.ts
+ ❯ src/dominio/visionado.test.ts:3:1
+      1| import { describe, expect, it } from 'vitest';
+      2| import { antigua, obra } from '../../tests/fixtures/cartelera';
+      3| import { fechaParaMigrar, planificarTransicion } from './visionado';
+       | ^
+      4|
+      5| describe('Fecha de visionado · D1 y D2', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  no tests
+   Start at  22:57:30
+   Duration  278ms (worker 97%, environment 3%)
+

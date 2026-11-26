@@ -29,8 +29,10 @@
     "eslint": "^9",
     "eslint-config-expo": "~58.0.4",
     "firebase-tools": "^15.34.1",
+    "prettier": "^3.10.1",
     "tsx": "^4.23.15",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "vitest": "^5.1.2"
   },
   "scripts": {
     "start": "expo start",
@@ -40,12 +42,14 @@
     "dev": "expo start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "node --import tsx --test tests/validation.test.ts tests/tmdb.test.ts",
+    "test": "vitest run && npm run test:legado",
     "test:rules": "firebase emulators:exec --only firestore --project demo-cartelera \"node --test tests/firestore.rules.test.mjs\"",
     "check:tmdb": "node --env-file=.env scripts/verificar-tmdb.mjs",
     "doctor": "npx expo-doctor",
     "export:android": "expo export --platform android",
-    "export:web": "expo export --platform web"
+    "export:web": "expo export --platform web",
+    "test:legado": "node --import tsx --test tests/validation.test.ts tests/tmdb.test.ts",
+    "test:watch": "vitest"
   },
   "private": true,
   "engines": {

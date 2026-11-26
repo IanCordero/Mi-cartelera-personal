@@ -1,42 +1,54 @@
-This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+# Mi Cartelera Personal · instrucciones del proyecto
 
-## Expo has changed — do not trust your training data
+App móvil Expo SDK 58, React Native y TypeScript. Firebase Auth identifica al usuario; Firestore Lite guarda su lista privada y AsyncStorage conserva una copia offline. TMDB aporta películas/series. La extensión actual es «Mi año en cine».
 
-Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+## Leer antes de actuar
 
-1. Read the major version of the `expo` package in `package.json`.
-2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
-3. For anything else, fetch https://docs.expo.dev/llms.txt — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+1. Leer SPEC.md y docs/AUDITORIA.md para entender la base P3 y sus límites.
+2. Leer el PRD, backlog y spec del ticket antes de escribir su implementación. Si faltan, preparar los documentos primero.
+3. **Antes de modificar cualquier pantalla o componente, leer DESIGN.md. Si no existe o no está revisado por el estudiante, detener la implementación de UI y solicitar esa revisión.**
+4. Conservar el orden del enunciado: auditoría/harness → PRD/diseño → spec/tests/dominio/datos → interfaz/verificación. No presentar una revisión automática como aprobación del estudiante.
 
-## Commands
+## Capas y carpetas
 
-Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
+- src/screens y src/components: interfaz y controles accesibles; no importar Firebase ni realizar fetch.
+- src/navigation: React Navigation, pila y pestañas tipadas; no migrar a Expo Router.
+- src/context: sesión, estado global, caché y coordinación de operaciones; conservar guardas por sesión y lecturas obsoletas.
+- src/services: único lugar de las operaciones de Firebase/TMDB y persistencia local.
+- src/firebase: inicialización y selección de emuladores; no lógica de pantalla.
+- src/types y src/utils: contratos y validaciones.
+- src/dominio: funciones puras de fechas, transiciones y resumen. Recibir reloj/año/calendario por parámetros; no leer Date.now ni crear una fecha actual dentro del dominio.
+- src/tema: única fuente de verdad de colores, tamaños y espacios, coherente con DESIGN.md y el brand board.
+- docs/prd, docs/backlog, docs/specs, docs/diseno: documentos que preceden al código.
 
-```bash
-npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
-npx expo start              # start the dev server
-npx expo lint               # lint
-npx tsc --noEmit            # typecheck
-npx expo-doctor             # diagnose dependency and config issues
-npx expo install --fix      # fix incompatible package versions
-```
+## Seguridad y preservación
 
-Run lint and typecheck before declaring any task done.
+- **Nunca leer, imprimir, copiar, editar ni enviar .env o sus variantes con credenciales.** No solicitar claves ni tokens en el chat. Solo .env.example contiene nombres de variables y valores vacíos.
+- Para invocar Expo durante trabajo del agente usar EXPO_NO_DOTENV=1, evitando su carga automática de archivos privados.
+- No usar any injustificado, @ts-ignore ni desactivar sensores para lograr un resultado verde.
+- No borrar documentos antiguos para adaptar el modelo. Migraciones idempotentes, por usuario y sin escrituras offline.
+- Mantener el aislamiento usuarios/{uid}/mi_lista/{tipo_id}, timestamps de servidor y prohibición de estrellas fuera de Vista.
+- Conservar atribución y logo oficial de TMDB, menos prominente que la marca propia.
+- Toda petición maneja carga, error y éxito. Borrar requiere confirmación y los controles tocan al menos 44 unidades lógicas.
 
-## Navigation & Routing
+## Comandos
 
-- This academic project explicitly requires React Navigation with native stack and bottom tabs. Keep the typed navigators in `src/navigation/` and screens in `src/screens/`.
-- Do not migrate to Expo Router without changing the course requirements.
-- Screens access Firebase through services and Context; do not call the SDK directly in screens.
-- Preserve the per-user cache and session generation guards when changing async flows.
+- Instalar exactamente la base: npm ci.
+- Nueva dependencia: EXPO_NO_DOTENV=1 npx expo install [paquete]; justificarla primero en la spec. Desarrollo: añadir --dev.
+- Sensores: npm test, npx tsc --noEmit y npm run lint.
+- Regresión P3: npm run test:legado. Firestore emulado: npm run test:rules (Java 21 o superior).
+- App humana: npm run dev; la configuración privada la realiza el estudiante fuera del chat.
+- Formato automático: hook .claude/hooks/formato.mjs tras Write/Edit/MultiEdit; al editar con otra herramienta ejecutar el mismo formateo explícitamente sobre cada archivo editado.
 
-## Building with EAS
+## Git y revisión
 
-Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
-Docs: https://docs.expo.dev/eas/index.md
+- Base: etiqueta p3-final; trabajo en epica-mi-anio. Nunca reescribir el historial del Proyecto 3 ni hacer force-push.
+- Commits en español con prefijo docs:, feat:, fix:, test: o chore:. Usar la skill local /commit al trabajar con Claude Code.
+- Mostrar el diff y obtener la revisión del estudiante antes de cada commit; no inventar revisiones ni aprobación de un diseño.
+- Los commits docs: preceden a su implementación. npm test y npx tsc --noEmit pasan antes de cada commit de código.
+- Excepción expresa y limitada del enunciado: Hito 2 registra el sensor de colores en rojo y Hito 3 registra tests del dominio en rojo antes de implementarlo. Conservar la evidencia roja; no desactivar ni borrar esos tests. Fuera de esas fases, no confirmar código con sensores fallando.
+- No publicar reglas de Firebase ni marcar pruebas humanas como hechas sin evidencia real. Registrar lo pendiente en docs/VERIFICACION.md y docs/IA.md.
 
-## Rules
+## Documentación técnica
 
-- If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
-- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
-- Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
+Expo cambia entre SDK: consultar https://docs.expo.dev/versions/v58.0.0/ para APIs nativas y https://docs.expo.dev/llms.txt para páginas específicas. No crear ios/ o android/ manualmente. Los módulos nativos nuevos deben ser compatibles con Expo Go.

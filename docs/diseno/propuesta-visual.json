@@ -1,0 +1,115 @@
+{
+  "estado": "Aprobada por el estudiante el 25 de noviembre de 2026 en la conversación; trasladar sin alterar a DESIGN.md y src/tema",
+  "personalidad": ["Cinematográfica", "Íntima", "Precisa"],
+  "colores": {
+    "fondo": "#0B0E17",
+    "superficie": "#151B2A",
+    "elevada": "#1D2538",
+    "borde": "#58667F",
+    "texto": "#F4F5FA",
+    "textoSecundario": "#A4AEC4",
+    "acento": "#AEABFF",
+    "acentoSuave": "#34315C",
+    "porVer": "#AEABFF",
+    "viendo": "#89C9FF",
+    "vista": "#8DE0BD",
+    "error": "#FF9AAB",
+    "fondoError": "#3D2131",
+    "fondoVista": "#19352E",
+    "fondoViendo": "#20334A",
+    "fondoPorVer": "#34315C",
+    "sombra": "#000000BB"
+  },
+  "tipografia": {
+    "familia": "Sistema (SF Pro / Roboto / sans-serif)",
+    "hero": 48,
+    "titulo": 32,
+    "seccion": 22,
+    "cuerpo": 16,
+    "etiqueta": 14,
+    "ayuda": 12,
+    "dato": 44
+  },
+  "espacios": [4, 8, 12, 16, 20, 24, 32, 40, 48, 64],
+  "radios": {
+    "control": 14,
+    "tarjeta": 20,
+    "destacada": 24,
+    "pastilla": 999
+  },
+  "tactoMinimo": 44,
+  "contrastes": [
+    {
+      "texto": "texto",
+      "fondo": "fondo",
+      "uso": "Títulos y cuerpo",
+      "ratio": 17.7
+    },
+    {
+      "texto": "textoSecundario",
+      "fondo": "fondo",
+      "uso": "Apoyo sobre fondo",
+      "ratio": 8.66
+    },
+    {
+      "texto": "texto",
+      "fondo": "superficie",
+      "uso": "Texto en tarjetas",
+      "ratio": 15.78
+    },
+    {
+      "texto": "textoSecundario",
+      "fondo": "superficie",
+      "uso": "Apoyo en tarjetas",
+      "ratio": 7.72
+    },
+    {
+      "texto": "acento",
+      "fondo": "fondo",
+      "uso": "Títulos de sección",
+      "ratio": 9.24
+    },
+    {
+      "texto": "acento",
+      "fondo": "acentoSuave",
+      "uso": "Botón secundario",
+      "ratio": 5.79
+    },
+    {
+      "texto": "fondo",
+      "fondo": "acento",
+      "uso": "Botón principal",
+      "ratio": 9.24
+    },
+    {
+      "texto": "porVer",
+      "fondo": "fondoPorVer",
+      "uso": "Estado Por ver",
+      "ratio": 5.79
+    },
+    {
+      "texto": "viendo",
+      "fondo": "fondoViendo",
+      "uso": "Estado Viendo",
+      "ratio": 7.26
+    },
+    {
+      "texto": "vista",
+      "fondo": "fondoVista",
+      "uso": "Estado Vista",
+      "ratio": 8.51
+    },
+    {
+      "texto": "error",
+      "fondo": "fondoError",
+      "uso": "Error",
+      "ratio": 7.16
+    },
+    {
+      "texto": "texto",
+      "fondo": "elevada",
+      "uso": "Superficie elevada",
+      "ratio": 14.04
+    }
+  ]
+}

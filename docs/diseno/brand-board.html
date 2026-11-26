@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi Cartelera Personal · Brand board 01</title>
+    <style>
+      :root {
+        --fondo: #0b0e17;
+        --superficie: #151b2a;
+        --elevada: #1d2538;
+        --borde: #58667f;
+        --texto: #f4f5fa;
+        --textoSecundario: #a4aec4;
+        --acento: #aeabff;
+        --acentoSuave: #34315c;
+        --porVer: #aeabff;
+        --viendo: #89c9ff;
+        --vista: #8de0bd;
+        --error: #ff9aab;
+        --fondoError: #3d2131;
+        --fondoVista: #19352e;
+        --fondoViendo: #20334a;
+        --fondoPorVer: #34315c;
+        --sombra: #000000bb;
+        color-scheme: dark;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--texto);
+        line-height: 1.5;
+      }
+      button,
+      select {
+        font: inherit;
+      }
+      button,
+      select,
+      a {
+        min-height: 44px;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible,
+      select:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--acento);
+        outline-offset: 4px;
+      }
+      a {
+        color: var(--acento);
+      }
+      button {
+        border: 0;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+      h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+        line-height: 1.1;
+        font-weight: 750;
+      }
+      h2 {
+        font-size: 22px;
+        letter-spacing: -0.6px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+      small,
+      .small-label {
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      code {
+        font-size: 12px;
+        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      }
+      .shell {
+        max-width: 1320px;
+        padding: 32px 40px 64px;
+        margin: auto;
+      }
+      .topline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--borde);
+        gap: 24px;
+      }
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 22px;
+        font-weight: 750;
+        letter-spacing: -0.6px;
+      }
+      .brand-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: var(--acentoSuave);
+        display: grid;
+        place-items: center;
+        color: var(--acento);
+      }
+      .brand-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .wordmark em {
+        font-style: normal;
+        color: var(--acento);
+      }
+      .status {
+        color: var(--acento);
+        background: var(--acentoSuave);
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 390px;
+        gap: 64px;
+        padding: 40px 0 32px;
+      }
+      .eyebrow {
+        color: var(--acento);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .hero h1 {
+        margin-top: 16px;
+        max-width: 650px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--acento);
+      }
+      .hero p {
+        max-width: 620px;
+        color: var(--textoSecundario);
+        font-size: 16px;
+        margin: 20px 0 0;
+      }
+      .traits {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+      .trait {
+        font-size: 12px;
+        border: 1px solid var(--borde);
+        padding: 7px 12px;
+        border-radius: 999px;
+      }
+      .hero-aside {
+        border-left: 2px solid var(--acento);
+        padding-left: 24px;
+        align-self: center;
+      }
+      .hero-aside b {
+        font-size: 22px;
+        display: block;
+        line-height: 1.3;
+      }
+      .hero-aside span {
+        display: block;
+        font-size: 14px;
+        color: var(--textoSecundario);
+        margin-top: 12px;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 390px;
+        gap: 40px;
+        align-items: start;
+      }
+      .left {
+        display: grid;
+        gap: 32px;
+      }
+      .section {
+        border-top: 1px solid var(--borde);
+        padding-top: 20px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .section-number {
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: var(--textoSecundario);
+      }
+      .section > p {
+        color: var(--textoSecundario);
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      .swatch {
+        overflow: hidden;
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+        background: var(--superficie);
+      }
+      .paint {
+        height: 36px;
+        border-bottom: 1px solid var(--borde);
+      }
+      .swatch-meta {
+        padding: 12px;
+        display: grid;
+        gap: 4px;
+      }
+      .swatch-meta b {
+        font-size: 12px;
+      }
+      .swatch-meta span {
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .swatch-meta code {
+        color: var(--textoSecundario);
+      }
+      .type-list {
+        display: grid;
+        gap: 16px;
+      }
+      .type-row {
+        display: grid;
+        grid-template-columns: 104px 1fr;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--borde);
+      }
+      .type-info {
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .type-info b {
+        display: block;
+        color: var(--texto);
+        margin-bottom: 4px;
+      }
+      .type-demo {
+        line-height: 1.15;
+        letter-spacing: -0.6px;
+      }
+      .type-demo.body {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 1.5;
+      }
+      .spaces {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+      .space-item {
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .space-block {
+        width: 24px;
+        background: var(--acento);
+        border-radius: 4px;
+      }
+      .forms {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .form-box {
+        padding: 16px;
+        background: var(--superficie);
+        border: 1px solid var(--borde);
+        font-size: 12px;
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .form-box b {
+        font-size: 22px;
+        color: var(--acento);
+      }
+      .component-box {
+        background: var(--superficie);
+        border: 1px solid var(--borde);
+        border-radius: 20px;
+        padding: 20px;
+        display: grid;
+        gap: 16px;
+      }
+      .component-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .component-caption {
+        color: var(--textoSecundario);
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+      .btn {
+        min-height: 48px;
+        border-radius: 14px;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .primary {
+        background: var(--acento);
+        color: var(--fondo);
+      }
+      .secondary {
+        background: var(--acentoSuave);
+        color: var(--acento);
+      }
+      .danger {
+        background: var(--fondoError);
+        color: var(--error);
+      }
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        min-height: 44px;
+        border-radius: 14px;
+        padding: 10px 12px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .chip.por-ver {
+        background: var(--fondoPorVer);
+        color: var(--porVer);
+      }
+      .chip.viendo {
+        background: var(--fondoViendo);
+        color: var(--viendo);
+      }
+      .chip.vista {
+        background: var(--fondoVista);
+        color: var(--vista);
+      }
+      .stars {
+        color: var(--acento);
+        font-size: 22px;
+        letter-spacing: 3px;
+        display: block;
+      }
+      .work {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .work .poster-mini {
+        height: 76px;
+        width: 52px;
+        border-radius: 8px;
+        background: var(--elevada);
+        display: grid;
+        place-items: center;
+        color: var(--acento);
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .work h3 {
+        margin-bottom: 4px;
+      }
+      .metric-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .metric {
+        border: 1px solid var(--borde);
+        border-radius: 20px;
+        padding: 16px;
+        background: var(--superficie);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .featured-metric {
+        background: var(--acentoSuave);
+      }
+      .metric strong {
+        font-size: 44px;
+        line-height: 1.1;
+        letter-spacing: -1.8px;
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+        font-weight: 750;
+      }
+      .metric strong span {
+        font-size: 12px;
+        color: var(--textoSecundario);
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+      .metric small {
+        font-size: 12px;
+      }
+      .rank {
+        border: 1px solid var(--borde);
+        background: var(--superficie);
+        border-radius: 20px;
+        padding: 16px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .rank > div {
+        display: grid;
+        gap: 4px;
+      }
+      .rank strong {
+        font-size: 16px;
+        line-height: 1.4;
+      }
+      .rank-icon {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        color: var(--acento);
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .year-picker {
+        min-height: 48px;
+        background: var(--elevada);
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+        color: var(--texto);
+        padding: 10px 12px;
+        min-width: 96px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .months-card {
+        border: 1px solid var(--borde);
+        border-radius: 20px;
+        padding: 16px;
+        background: var(--superficie);
+      }
+      .months-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .months-header b {
+        font-size: 16px;
+      }
+      .months-header small {
+        font-size: 12px;
+      }
+      .bars {
+        height: 136px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        align-items: end;
+        gap: 5px;
+        padding-top: 16px;
+      }
+      .bar-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        justify-content: flex-end;
+      }
+      .bar {
+        width: 100%;
+        max-width: 17px;
+        height: var(--h);
+        min-height: 2px;
+        border-radius: 5px 5px 2px 2px;
+        background: var(--textoSecundario);
+        display: block;
+      }
+      .bar.peak {
+        background: var(--acento);
+      }
+      .bar-count {
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .month {
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .chart-note {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 1px solid var(--borde);
+        font-size: 12px;
+        color: var(--textoSecundario);
+      }
+      .chart-note b {
+        color: var(--texto);
+      }
+      .feature {
+        background: var(--superficie);
+        border: 1px solid var(--borde);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+      }
+      .feature > div:last-child {
+        display: grid;
+        gap: 6px;
+        flex: 1;
+      }
+      .feature strong {
+        font-size: 22px;
+        line-height: 1.2;
+        letter-spacing: -0.6px;
+      }
+      .feature small {
+        font-size: 12px;
+      }
+      .poster-art {
+        position: relative;
+        overflow: hidden;
+        min-width: 88px;
+        width: 88px;
+        height: 132px;
+        border-radius: 12px;
+        background: var(--acentoSuave);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 12px;
+        border: 1px solid var(--borde);
+      }
+      .poster-art b {
+        position: relative;
+        z-index: 1;
+        letter-spacing: 2px;
+        font-size: 12px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+      .poster-art small {
+        position: relative;
+        z-index: 1;
+        color: var(--texto);
+        margin-top: 12px;
+      }
+      .orbit {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid var(--acento);
+        left: 10px;
+        top: 28px;
+      }
+      .o2 {
+        width: 120px;
+        height: 120px;
+        top: 44px;
+        left: 25px;
+      }
+      .text-button {
+        min-height: 44px;
+        text-align: left;
+        background: transparent;
+        color: var(--acento);
+        padding: 0;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .notice {
+        padding: 12px 16px;
+        border: 1px solid var(--borde);
+        background: var(--elevada);
+        border-radius: 14px;
+        font-size: 12px;
+        color: var(--textoSecundario);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .notice b {
+        color: var(--texto);
+      }
+      .notice.error {
+        color: var(--error);
+        background: var(--fondoError);
+      }
+      .state-list {
+        display: grid;
+        gap: 12px;
+      }
+      .empty {
+        border: 1px solid var(--borde);
+        border-radius: 20px;
+        text-align: center;
+        padding: 24px 16px;
+        display: grid;
+        gap: 12px;
+        background: var(--superficie);
+      }
+      .empty strong {
+        font-size: 22px;
+        line-height: 1.2;
+      }
+      .empty p {
+        font-size: 14px;
+        color: var(--textoSecundario);
+      }
+      .empty .empty-symbol {
+        font-size: 32px;
+        color: var(--acento);
+      }
+      .empty .btn {
+        margin-top: 4px;
+      }
+      .loading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background: var(--superficie);
+        border-radius: 14px;
+        font-size: 14px;
+      }
+      .spinner {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid var(--borde);
+        border-top-color: var(--acento);
+        display: block;
+      }
+      .phone-panel {
+        position: sticky;
+        top: 24px;
+      }
+      .phone-label {
+        display: flex;
+        justify-content: space-between;
+        color: var(--textoSecundario);
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      .phone {
+        height: 844px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--borde);
+        border-radius: 32px;
+        overflow: hidden;
+        background: var(--fondo);
+        box-shadow: 0 24px 64px var(--sombra);
+        position: relative;
+      }
+      .phone-status {
+        flex-shrink: 0;
+        padding: 12px 22px 8px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .phone-status span:last-child {
+        color: var(--textoSecundario);
+      }
+      .phone-header {
+        flex-shrink: 0;
+        padding: 16px 20px 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .phone-header h2 {
+        font-size: 32px;
+        letter-spacing: -1px;
+        line-height: 1.1;
+        margin-top: 8px;
+      }
+      .phone-subtitle {
+        flex-shrink: 0;
+        padding: 12px 20px 0;
+        font-size: 14px;
+        color: var(--textoSecundario);
+      }
+      .phone-content {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        display: grid;
+        gap: 12px;
+        padding: 20px;
+      }
+      .phone-content .section-title {
+        font-size: 16px;
+        letter-spacing: -0.3px;
+        margin-top: 4px;
+      }
+      .phone-content .metric {
+        padding: 16px;
+      }
+      .phone-content .small-label {
+        font-size: 12px;
+      }
+      .phone-content .metric strong {
+        font-size: 44px;
+      }
+      .phone-footer-note {
+        flex-shrink: 0;
+        text-align: center;
+        font-size: 12px;
+        color: var(--textoSecundario);
+        padding: 4px 20px 16px;
+      }
+      .tabbar {
+        flex-shrink: 0;
+        border-top: 1px solid var(--borde);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 8px 8px 16px;
+        background: var(--fondo);
+      }
+      .tab {
+        min-height: 52px;
+        background: transparent;
+        color: var(--textoSecundario);
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border-radius: 14px;
+      }
+      .tab i {
+        font-size: 20px;
+        font-style: normal;
+        line-height: 1;
+      }
+      .tab.active {
+        background: var(--acentoSuave);
+        color: var(--acento);
+      }
+      .preview-controls {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .preview-controls button {
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+        color: var(--textoSecundario);
+        background: var(--superficie);
+        font-size: 12px;
+        min-height: 44px;
+        padding: 8px 12px;
+      }
+      .preview-controls button[aria-pressed='true'] {
+        background: var(--acentoSuave);
+        color: var(--acento);
+        border-color: var(--acento);
+      }
+      .preview-help {
+        color: var(--textoSecundario);
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 12px;
+      }
+      .wide {
+        margin-top: 40px;
+      }
+      .contrast-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      .contrast-table th {
+        text-align: left;
+        color: var(--textoSecundario);
+        font-weight: 500;
+        font-size: 12px;
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--borde);
+      }
+      .contrast-table td {
+        padding: 12px 8px;
+        border-bottom: 1px solid var(--borde);
+      }
+      .contrast-table small {
+        font-size: 12px;
+      }
+      .pair-dot {
+        display: inline-grid;
+        place-items: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .pass {
+        white-space: nowrap;
+        font-weight: 600;
+      }
+      .pass span {
+        color: var(--vista);
+        margin-left: 8px;
+      }
+      .voice-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .voice {
+        padding: 20px;
+        border: 1px solid var(--borde);
+        border-radius: 20px;
+        background: var(--superficie);
+      }
+      .voice b {
+        display: block;
+        color: var(--acento);
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+      .voice p {
+        font-size: 16px;
+      }
+      .voice small {
+        display: block;
+        margin-top: 12px;
+      }
+      .closing {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--borde);
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+      }
+      .tmdb-credit {
+        font-size: 12px;
+        color: var(--textoSecundario);
+        max-width: 560px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .tmdb-credit img {
+        width: 80px;
+        height: auto;
+        flex-shrink: 0;
+      }
+      .closing .version {
+        color: var(--textoSecundario);
+        font-size: 12px;
+        text-align: right;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .full-width {
+        grid-column: 1/-1;
+      }
+      .phone .empty {
+        padding: 32px 20px;
+      }
+      .phone .empty strong {
+        font-size: 22px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      @media (max-width: 1020px) {
+        .shell {
+          padding: 24px;
+        }
+        .hero {
+          gap: 24px;
+          grid-template-columns: 1fr;
+        }
+        .hero-aside {
+          max-width: 600px;
+        }
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .phone-panel {
+          position: static;
+          max-width: 390px;
+          width: 100%;
+          margin: 0 auto;
+          order: -1;
+        }
+        .left {
+          margin-top: 16px;
+        }
+        .voice-grid {
+          grid-template-columns: 1fr;
+        }
+        .closing {
+          align-items: flex-start;
+        }
+        .swatches {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .shell {
+          padding: 20px 16px 40px;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        .hero {
+          padding-top: 32px;
+        }
+        .topline {
+          gap: 12px;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .swatches {
+          grid-template-columns: 1fr 1fr;
+        }
+        .component-grid {
+          grid-template-columns: 1fr;
+        }
+        .type-row {
+          grid-template-columns: 80px 1fr;
+          gap: 12px;
+        }
+        .contrast-table {
+          font-size: 12px;
+        }
+        .contrast-table td,
+        .contrast-table th {
+          padding: 10px 4px;
+        }
+        .contrast-table td:first-child,
+        .contrast-table th:first-child {
+          display: none;
+        }
+        .closing {
+          flex-direction: column;
+        }
+        .closing .version {
+          text-align: left;
+        }
+        .phone-header h2 {
+          font-size: 32px;
+        }
+        .phone .metric strong {
+          font-size: 38px;
+        }
+        .phone-content {
+          padding: 16px;
+        }
+        .phone-header {
+          padding: 16px 16px 0;
+        }
+        .phone-subtitle {
+          padding: 12px 16px 0;
+        }
+        .phone .metric {
+          padding: 12px;
+        }
+        .phone .feature {
+          gap: 12px;
+          padding: 12px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topline">
+        <div class="wordmark">
+          <span class="brand-icon"
+            ><svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path
+                d="M5 12h22v14H5zM5 5h22v7H5z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="m10 5 4 7m4-7 4 7M14 17l6 3-6 3z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              /></svg></span
+          >mi cartelera<em>.</em>
+        </div>
+        <span class="status">Propuesta 01 · Para revisión</span>
+      </header>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Sistema visual · Mi Cartelera Personal</span>
+          <h1>Cada historia<br />deja una <em>huella.</em></h1>
+          <p>
+            Un archivo íntimo de lo que viste. El resumen anual conserva el carácter de la app y
+            convierte tus cifras en recuerdos fáciles de reconocer.
+          </p>
+          <div class="traits">
+            <span class="trait">Cinematográfica</span><span class="trait">Íntima</span
+            ><span class="trait">Precisa</span>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <b>Oscura, contenida<br />y con una cifra protagonista.</b
+          ><span
+            >Azul profundo + lavanda + menta.<br />Tipografía del sistema. Áreas táctiles desde
+            44.<br />Sin brillos excesivos ni gráficos decorativos.</span
+          >
+        </div>
+      </section>
+      <div class="layout">
+        <div class="left">
+          <section class="section">
+            <div class="section-head">
+              <h2>Una paleta que acompaña.</h2>
+              <span class="section-number">01 / COLOR</span>
+            </div>
+            <p>
+              Los textos se verifican sobre su fondo real. El color refuerza una etiqueta; nunca
+              reemplaza su significado.
+            </p>
+            <div class="swatches">
+              <article class="swatch">
+                <div class="paint" style="background: #0b0e17"></div>
+                <div class="swatch-meta">
+                  <b>fondo</b><code>#0B0E17</code><span>Lienzo y texto sobre botón</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #151b2a"></div>
+                <div class="swatch-meta">
+                  <b>superficie</b><code>#151B2A</code><span>Tarjetas y paneles</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #1d2538"></div>
+                <div class="swatch-meta">
+                  <b>elevada</b><code>#1D2538</code><span>Control y superficie elevada</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #58667f"></div>
+                <div class="swatch-meta">
+                  <b>borde</b><code>#58667F</code><span>Límite de controles y foco</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #f4f5fa"></div>
+                <div class="swatch-meta">
+                  <b>texto</b><code>#F4F5FA</code><span>Títulos y cuerpo</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #a4aec4"></div>
+                <div class="swatch-meta">
+                  <b>textoSecundario</b><code>#A4AEC4</code><span>Contexto y etiquetas</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #aeabff"></div>
+                <div class="swatch-meta">
+                  <b>acento</b><code>#AEABFF</code><span>Acción principal y cifras</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #34315c"></div>
+                <div class="swatch-meta">
+                  <b>acentoSuave</b><code>#34315C</code><span>Acción secundaria</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #aeabff"></div>
+                <div class="swatch-meta">
+                  <b>porVer</b><code>#AEABFF</code><span>Estado Por ver</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #89c9ff"></div>
+                <div class="swatch-meta">
+                  <b>viendo</b><code>#89C9FF</code><span>Estado Viendo</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #8de0bd"></div>
+                <div class="swatch-meta">
+                  <b>vista</b><code>#8DE0BD</code><span>Estado Vista</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #ff9aab"></div>
+                <div class="swatch-meta">
+                  <b>error</b><code>#FF9AAB</code><span>Texto de error</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #3d2131"></div>
+                <div class="swatch-meta">
+                  <b>fondoError</b><code>#3D2131</code><span>Fondo de error</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #19352e"></div>
+                <div class="swatch-meta">
+                  <b>fondoVista</b><code>#19352E</code><span>Fondo de Vista</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #20334a"></div>
+                <div class="swatch-meta">
+                  <b>fondoViendo</b><code>#20334A</code><span>Fondo de Viendo</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #34315c"></div>
+                <div class="swatch-meta">
+                  <b>fondoPorVer</b><code>#34315C</code><span>Fondo de Por ver</span>
+                </div>
+              </article>
+              <article class="swatch">
+                <div class="paint" style="background: #000000bb"></div>
+                <div class="swatch-meta">
+                  <b>sombra</b><code>#000000BB</code><span>Superposición modal</span>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head">
+              <h2>La historia tiene jerarquía.</h2>
+              <span class="section-number">02 / TIPOGRAFÍA</span>
+            </div>
+            <p>
+              SF Pro en iOS, Roboto en Android y fuente del sistema en web. Escala flexible que
+              respeta el ajuste de texto del teléfono.
+            </p>
+            <div class="type-list">
+              <div class="type-row">
+                <div class="type-info"><b>Dato · 44</b>Protagonista</div>
+                <div class="type-demo" style="font-size: 44px; font-weight: 750">
+                  27,5
+                  <span style="font-size: 16px; color: var(--textoSecundario)">horas de cine</span>
+                </div>
+              </div>
+              <div class="type-row">
+                <div class="type-info"><b>Título · 32</b>Una pantalla</div>
+                <div class="type-demo" style="font-size: 32px; font-weight: 750">
+                  Mi año en cine.
+                </div>
+              </div>
+              <div class="type-row">
+                <div class="type-info"><b>Sección · 22</b>Agrupar</div>
+                <div class="type-demo" style="font-size: 22px; font-weight: 700">
+                  Tu ritmo, mes a mes
+                </div>
+              </div>
+              <div class="type-row">
+                <div class="type-info"><b>Cuerpo · 16</b>Explicar</div>
+                <div class="type-demo body">
+                  Las historias que viste.<br />Las que se quedan contigo.
+                </div>
+              </div>
+              <div class="type-row">
+                <div class="type-info"><b>Etiqueta · 14</b>Acciones</div>
+                <div class="type-demo" style="font-size: 14px; font-weight: 600">
+                  Ir a Mi lista →
+                </div>
+              </div>
+              <div class="type-row">
+                <div class="type-info"><b>Ayuda · 12</b>Contexto</div>
+                <div class="type-demo" style="font-size: 12px; color: var(--textoSecundario)">
+                  Solo películas · No incluye series
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head">
+              <h2>Espacio para respirar.</h2>
+              <span class="section-number">03 / FORMA</span>
+            </div>
+            <div class="spaces">
+              <div class="space-item"><span class="space-block" style="height: 4px"></span>4</div>
+              <div class="space-item"><span class="space-block" style="height: 8px"></span>8</div>
+              <div class="space-item"><span class="space-block" style="height: 12px"></span>12</div>
+              <div class="space-item"><span class="space-block" style="height: 16px"></span>16</div>
+              <div class="space-item"><span class="space-block" style="height: 20px"></span>20</div>
+              <div class="space-item"><span class="space-block" style="height: 24px"></span>24</div>
+              <div class="space-item"><span class="space-block" style="height: 32px"></span>32</div>
+              <div class="space-item"><span class="space-block" style="height: 40px"></span>40</div>
+              <div class="space-item"><span class="space-block" style="height: 48px"></span>48</div>
+              <div class="space-item"><span class="space-block" style="height: 64px"></span>64</div>
+            </div>
+            <div class="forms">
+              <div class="form-box" style="border-radius: 14px"><b>14</b>Controles</div>
+              <div class="form-box" style="border-radius: 20px"><b>20</b>Tarjetas</div>
+              <div class="form-box" style="border-radius: 24px"><b>24</b>Destacada</div>
+              <div class="form-box" style="border-radius: 14px"><b>44+</b>Alto táctil mínimo</div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head">
+              <h2>Lo conocido se conserva.</h2>
+              <span class="section-number">04 / COMPONENTES P3</span>
+            </div>
+            <div class="component-box">
+              <div class="work">
+                <div class="poster-mini">▤</div>
+                <div>
+                  <span class="eyebrow">PELÍCULA · 2014</span>
+                  <h3>Interstellar</h3>
+                  <small>Tarjeta con póster o reemplazo y título</small>
+                </div>
+              </div>
+              <div class="chips">
+                <button class="chip por-ver" type="button">◯ Por ver</button
+                ><button class="chip viendo" type="button">◐ Viendo</button
+                ><button class="chip vista" type="button">✓ Vista</button>
+              </div>
+              <div>
+                <div class="component-caption">Calificación personal · solo en Vista</div>
+                <div class="stars" aria-label="Cuatro de cinco estrellas">★★★★☆</div>
+              </div>
+              <div class="component-grid">
+                <button class="btn primary" type="button">Guardar cambios</button
+                ><button class="btn secondary" type="button">Ver mi entrada ↗</button>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head">
+              <h2>Un año, cinco nuevas piezas.</h2>
+              <span class="section-number">05 / COMPONENTES NUEVOS</span>
+            </div>
+            <p>
+              Los mismos componentes de esta sección forman la maqueta del teléfono: datos,
+              preferencias, barras, destacada y selector.
+            </p>
+            <div class="component-box">
+              <div>
+                <div class="component-caption">
+                  Selector de año · solo años disponibles + actual
+                </div>
+                <select class="year-picker" aria-label="Ejemplo del selector de año">
+                  <option>2026</option>
+                  <option>2025</option>
+                </select>
+              </div>
+              <div class="metric-grid">
+                <div class="metric featured-metric">
+                  <span class="small-label">Historias vistas</span
+                  ><strong>18<span>obras</span></strong
+                  ><small>13 películas · 5 series</small>
+                </div>
+                <div class="metric">
+                  <span class="small-label">Horas de cine</span><strong>27,5<span>h</span></strong
+                  ><small>Solo películas</small>
+                </div>
+              </div>
+              <article class="rank">
+                <span class="rank-icon">◈</span>
+                <div>
+                  <span class="small-label">Género más visto</span><strong>Drama</strong
+                  ><small>8 obras de tu año</small>
+                </div>
+              </article>
+              <article class="rank">
+                <span class="rank-icon">⌁</span>
+                <div>
+                  <span class="small-label">Director más visto</span
+                  ><strong>Christopher Nolan</strong><small>3 películas de tu año</small>
+                </div>
+              </article>
+              <div class="months-card">
+                <div class="months-header"><b>Tu ritmo, mes a mes</b><small>18 obras</small></div>
+                <div class="bars">
+                  <div class="bar-col" aria-label="E: 1 obras">
+                    <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                    ><span class="month">E</span>
+                  </div>
+                  <div class="bar-col" aria-label="F: 0 obras">
+                    <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                    ><span class="month">F</span>
+                  </div>
+                  <div class="bar-col" aria-label="M: 2 obras">
+                    <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                    ><span class="month">M</span>
+                  </div>
+                  <div class="bar-col" aria-label="A: 1 obras">
+                    <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                    ><span class="month">A</span>
+                  </div>
+                  <div class="bar-col" aria-label="M: 0 obras">
+                    <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                    ><span class="month">M</span>
+                  </div>
+                  <div class="bar-col" aria-label="J: 3 obras">
+                    <span class="bar-count">3</span><i class="bar" style="--h: 45px"></i
+                    ><span class="month">J</span>
+                  </div>
+                  <div class="bar-col" aria-label="J: 2 obras">
+                    <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                    ><span class="month">J</span>
+                  </div>
+                  <div class="bar-col" aria-label="A: 1 obras">
+                    <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                    ><span class="month">A</span>
+                  </div>
+                  <div class="bar-col" aria-label="S: 1 obras">
+                    <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                    ><span class="month">S</span>
+                  </div>
+                  <div class="bar-col" aria-label="O: 2 obras">
+                    <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                    ><span class="month">O</span>
+                  </div>
+                  <div class="bar-col" aria-label="N: 5 obras">
+                    <span class="bar-count">5</span><i class="bar peak" style="--h: 75px"></i
+                    ><span class="month">N</span>
+                  </div>
+                  <div class="bar-col" aria-label="D: 0 obras">
+                    <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                    ><span class="month">D</span>
+                  </div>
+                </div>
+                <div class="chart-note"><span>Mes más activo</span><b>Noviembre · 5 obras</b></div>
+              </div>
+              <article class="feature">
+                <div class="poster-art" aria-label="Póster de reemplazo ilustrativo">
+                  <span class="orbit o1"></span><span class="orbit o2"></span
+                  ><b>INTER<br />STELLAR</b><small>2014</small>
+                </div>
+                <div>
+                  <span class="small-label">Tu obra destacada</span><strong>Interstellar</strong
+                  ><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span
+                  ><small>La mejor calificada de tu año</small
+                  ><button class="text-button" type="button">Ver mi entrada ↗</button>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section class="section">
+            <div class="section-head">
+              <h2>Incluso cuando faltan datos.</h2>
+              <span class="section-number">06 / ESTADOS</span>
+            </div>
+            <div class="state-list">
+              <div class="loading">
+                <i class="spinner" aria-hidden="true"></i><span>Estamos preparando tu año…</span>
+              </div>
+              <div class="notice">
+                <span>↻</span
+                ><span
+                  ><b>Completando datos · 3 de 8</b><br />Las obras se consultan una por una.</span
+                >
+              </div>
+              <div class="notice">
+                <span>◌</span
+                ><span
+                  ><b>Estás viendo tu última copia.</b><br />Conéctate para actualizar fechas y
+                  datos.</span
+                >
+              </div>
+              <div class="notice">
+                <span>ⓘ</span
+                ><span
+                  ><b>2 obras necesitan completar sus datos.</b><br />Siguen en tu total; todavía no
+                  suman preferencias ni horas.</span
+                >
+              </div>
+              <div class="notice error">
+                <span>!</span
+                ><span>No pudimos actualizar tu resumen. Conservamos tu última copia.</span>
+              </div>
+              <div class="empty">
+                <span class="empty-symbol">▤</span
+                ><strong>Tu año todavía tiene<br />historias por descubrir.</strong>
+                <p>Marca una película o serie como Vista para empezar tu resumen.</p>
+                <button class="btn primary" type="button">Ir a Mi lista →</button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <aside class="phone-panel">
+          <div class="phone-label">
+            <span>07 / PANTALLA DE EJEMPLO</span><span>390 · datos simulados</span>
+          </div>
+          <div class="phone" id="phone-preview">
+            <div class="phone-status"><span>9:41</span><span>▮▮▮ · ▰</span></div>
+            <header class="phone-header">
+              <div>
+                <span class="eyebrow">TU ARCHIVO ANUAL</span>
+                <h2>Mi año<br />en cine.</h2>
+              </div>
+              <select class="year-picker" id="phone-year" aria-label="Año de la maqueta">
+                <option>2026</option>
+                <option>2025</option>
+              </select>
+            </header>
+            <p class="phone-subtitle">Cada historia deja una huella.</p>
+            <div class="phone-content" id="phone-content">
+              <div class="notice hidden" id="offline-note">
+                <span>◌</span
+                ><span
+                  ><b>Estás viendo tu última copia.</b><br />Conéctate para actualizar tu
+                  resumen.</span
+                >
+              </div>
+              <div class="notice hidden" id="partial-note">
+                <span>ⓘ</span
+                ><span
+                  ><b>2 obras sin datos completos.</b><br />Las cifras indican qué falta
+                  recuperar.</span
+                >
+              </div>
+              <div id="annual-data" style="display: grid; gap: 12px">
+                <div class="metric-grid">
+                  <div class="metric featured-metric">
+                    <span class="small-label">Historias vistas</span
+                    ><strong>18<span>obras</span></strong
+                    ><small>13 películas · 5 series</small>
+                  </div>
+                  <div class="metric">
+                    <span class="small-label">Horas de cine</span><strong>27,5<span>h</span></strong
+                    ><small>Solo películas</small>
+                  </div>
+                </div>
+                <h3 class="section-title">Lo que definió tu año</h3>
+                <article class="rank">
+                  <span class="rank-icon">◈</span>
+                  <div>
+                    <span class="small-label">Género más visto</span><strong>Drama</strong
+                    ><small>8 obras de tu año</small>
+                  </div>
+                </article>
+                <article class="rank">
+                  <span class="rank-icon">⌁</span>
+                  <div>
+                    <span class="small-label">Director más visto</span
+                    ><strong>Christopher Nolan</strong><small>3 películas de tu año</small>
+                  </div>
+                </article>
+                <div class="months-card">
+                  <div class="months-header"><b>Tu ritmo, mes a mes</b></div>
+                  <div class="bars">
+                    <div class="bar-col" aria-label="E: 1 obras">
+                      <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                      ><span class="month">E</span>
+                    </div>
+                    <div class="bar-col" aria-label="F: 0 obras">
+                      <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                      ><span class="month">F</span>
+                    </div>
+                    <div class="bar-col" aria-label="M: 2 obras">
+                      <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                      ><span class="month">M</span>
+                    </div>
+                    <div class="bar-col" aria-label="A: 1 obras">
+                      <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                      ><span class="month">A</span>
+                    </div>
+                    <div class="bar-col" aria-label="M: 0 obras">
+                      <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                      ><span class="month">M</span>
+                    </div>
+                    <div class="bar-col" aria-label="J: 3 obras">
+                      <span class="bar-count">3</span><i class="bar" style="--h: 45px"></i
+                      ><span class="month">J</span>
+                    </div>
+                    <div class="bar-col" aria-label="J: 2 obras">
+                      <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                      ><span class="month">J</span>
+                    </div>
+                    <div class="bar-col" aria-label="A: 1 obras">
+                      <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                      ><span class="month">A</span>
+                    </div>
+                    <div class="bar-col" aria-label="S: 1 obras">
+                      <span class="bar-count">1</span><i class="bar" style="--h: 15px"></i
+                      ><span class="month">S</span>
+                    </div>
+                    <div class="bar-col" aria-label="O: 2 obras">
+                      <span class="bar-count">2</span><i class="bar" style="--h: 30px"></i
+                      ><span class="month">O</span>
+                    </div>
+                    <div class="bar-col" aria-label="N: 5 obras">
+                      <span class="bar-count">5</span><i class="bar peak" style="--h: 75px"></i
+                      ><span class="month">N</span>
+                    </div>
+                    <div class="bar-col" aria-label="D: 0 obras">
+                      <span class="bar-count">0</span><i class="bar" style="--h: 2px"></i
+                      ><span class="month">D</span>
+                    </div>
+                  </div>
+                  <div class="chart-note">
+                    <span>Mes más activo</span><b>Noviembre · 5 obras</b>
+                  </div>
+                </div>
+                <h3 class="section-title">Una historia para recordar</h3>
+                <article class="feature">
+                  <div class="poster-art" aria-label="Póster de reemplazo ilustrativo">
+                    <span class="orbit o1"></span><span class="orbit o2"></span
+                    ><b>INTER<br />STELLAR</b><small>2014</small>
+                  </div>
+                  <div>
+                    <span class="small-label">Tu obra destacada</span><strong>Interstellar</strong
+                    ><span class="stars" aria-label="5 de 5 estrellas">★★★★★</span
+                    ><small>La mejor calificada de tu año</small
+                    ><button class="text-button" type="button">Ver mi entrada ↗</button>
+                  </div>
+                </article>
+              </div>
+              <div class="empty hidden" id="phone-empty">
+                <span class="empty-symbol">▤</span
+                ><strong>Tu año todavía tiene historias por descubrir.</strong>
+                <p>Marca una película o serie como Vista para empezar tu resumen.</p>
+                <button class="btn primary" type="button">Ir a Mi lista →</button>
+              </div>
+            </div>
+            <div class="phone-footer-note">Tu resumen es privado. Siempre.</div>
+            <nav class="tabbar" aria-label="Pestañas ilustrativas">
+              <button class="tab" type="button"><i>⌕</i>Buscar</button
+              ><button class="tab" type="button"><i>▤</i>Mi lista</button
+              ><button class="tab active" type="button" aria-current="page"><i>▥</i>Mi año</button
+              ><button class="tab" type="button"><i>◉</i>Acerca de</button>
+            </nav>
+          </div>
+          <div class="preview-controls" role="group" aria-label="Estados de la maqueta">
+            <button type="button" aria-pressed="true" data-mode="data">Con datos</button
+            ><button type="button" aria-pressed="false" data-mode="empty">Vacío</button
+            ><button type="button" aria-pressed="false" data-mode="offline">Sin conexión</button
+            ><button type="button" aria-pressed="false" data-mode="partial">Incompleto</button>
+          </div>
+          <p class="preview-help">
+            Maqueta visual, no conectada a Firebase ni TMDB. Puedes deslizar el contenido dentro del
+            teléfono. El póster geométrico es un reemplazo ilustrativo. Los controles cambian
+            estados de ejemplo; el cálculo real se implementará después de la spec y sus tests.
+          </p>
+        </aside>
+      </div>
+      <section class="section wide">
+        <div class="section-head">
+          <h2>El contraste también se diseña.</h2>
+          <span class="section-number">08 / ACCESIBILIDAD</span>
+        </div>
+        <p>
+          Relación WCAG calculada con luminancia sRGB, sin redondear para decidir el aprobado. Los
+          12 pares de texto cumplen al menos 4,5:1. El borde es una función estructural, no un color
+          de texto.
+        </p>
+        <table class="contrast-table">
+          <thead>
+            <tr>
+              <th>Muestra</th>
+              <th>Tokens</th>
+              <th>Uso</th>
+              <th>Contraste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pair-dot" style="color: #f4f5fa; background: #0b0e17">Aa</span></td>
+              <td>texto<br /><small>sobre fondo</small></td>
+              <td>Títulos y cuerpo</td>
+              <td class="pass">17.70:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #a4aec4; background: #0b0e17">Aa</span></td>
+              <td>textoSecundario<br /><small>sobre fondo</small></td>
+              <td>Apoyo sobre fondo</td>
+              <td class="pass">8.66:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #f4f5fa; background: #151b2a">Aa</span></td>
+              <td>texto<br /><small>sobre superficie</small></td>
+              <td>Texto en tarjetas</td>
+              <td class="pass">15.78:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #a4aec4; background: #151b2a">Aa</span></td>
+              <td>textoSecundario<br /><small>sobre superficie</small></td>
+              <td>Apoyo en tarjetas</td>
+              <td class="pass">7.72:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #aeabff; background: #0b0e17">Aa</span></td>
+              <td>acento<br /><small>sobre fondo</small></td>
+              <td>Títulos de sección</td>
+              <td class="pass">9.24:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #aeabff; background: #34315c">Aa</span></td>
+              <td>acento<br /><small>sobre acentoSuave</small></td>
+              <td>Botón secundario</td>
+              <td class="pass">5.79:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #0b0e17; background: #aeabff">Aa</span></td>
+              <td>fondo<br /><small>sobre acento</small></td>
+              <td>Botón principal</td>
+              <td class="pass">9.24:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #aeabff; background: #34315c">Aa</span></td>
+              <td>porVer<br /><small>sobre fondoPorVer</small></td>
+              <td>Estado Por ver</td>
+              <td class="pass">5.79:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #89c9ff; background: #20334a">Aa</span></td>
+              <td>viendo<br /><small>sobre fondoViendo</small></td>
+              <td>Estado Viendo</td>
+              <td class="pass">7.26:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #8de0bd; background: #19352e">Aa</span></td>
+              <td>vista<br /><small>sobre fondoVista</small></td>
+              <td>Estado Vista</td>
+              <td class="pass">8.51:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #ff9aab; background: #3d2131">Aa</span></td>
+              <td>error<br /><small>sobre fondoError</small></td>
+              <td>Error</td>
+              <td class="pass">7.16:1 <span>✓</span></td>
+            </tr>
+            <tr>
+              <td><span class="pair-dot" style="color: #f4f5fa; background: #1d2538">Aa</span></td>
+              <td>texto<br /><small>sobre elevada</small></td>
+              <td>Superficie elevada</td>
+              <td class="pass">14.04:1 <span>✓</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="section wide">
+        <div class="section-head">
+          <h2>Hablar como una buena recomendación.</h2>
+          <span class="section-number">09 / VOZ</span>
+        </div>
+        <div class="voice-grid">
+          <article class="voice">
+            <b>VACÍO · INVITAR</b>
+            <p>Tu año todavía tiene historias por descubrir.</p>
+            <small>Una acción concreta: Ir a Mi lista.</small>
+          </article>
+          <article class="voice">
+            <b>ERROR · ACOMPAÑAR</b>
+            <p>No pudimos actualizar tu resumen. Conservamos tu última copia.</p>
+            <small>Explicar lo que ocurre y ofrecer Reintentar.</small>
+          </article>
+          <article class="voice">
+            <b>DATOS · SER PRECISOS</b>
+            <p>27,5 horas de cine.<br />Solo películas.</p>
+            <small>No incluir tiempo de series que no podemos calcular.</small>
+          </article>
+        </div>
+      </section>
+      <footer class="closing">
+        <div class="tmdb-credit">
+          <img
+            alt="Logo oficial TMDB"
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjczLjQyIDM1LjUyIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQpO308L3N0eWxlPjxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB5MT0iMTcuNzYiIHgyPSIyNzMuNDIiIHkyPSIxNy43NiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzkwY2VhMSIvPjxzdG9wIG9mZnNldD0iMC41NiIgc3RvcC1jb2xvcj0iIzNjYmVjOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwYjNlNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjx0aXRsZT5Bc3NldCAzPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE5MS44NSwzNS4zN2g2My45QTE3LjY3LDE3LjY3LDAsMCwwLDI3My40MiwxNy43aDBBMTcuNjcsMTcuNjcsMCwwLDAsMjU1Ljc1LDBoLTYzLjlBMTcuNjcsMTcuNjcsMCwwLDAsMTc0LjE4LDE3LjdoMEExNy42NywxNy42NywwLDAsMCwxOTEuODUsMzUuMzdaTTEwLjEsMzUuNDJoNy44VjYuOTJIMjhWMEgwdjYuOUgxMC4xWm0yOC4xLDBINDZWOC4yNWguMUw1NS4wNSwzNS40aDZMNzAuMyw4LjI1aC4xVjM1LjRoNy44VjBINjYuNDVsLTguMiwyMy4xaC0uMUw1MCwwSDM4LjJaTTg5LjE0LjEyaDExLjdhMzMuNTYsMzMuNTYsMCwwLDEsOC4wOCwxLDE4LjUyLDE4LjUyLDAsMCwxLDYuNjcsMy4wOCwxNS4wOSwxNS4wOSwwLDAsMSw0LjUzLDUuNTIsMTguNSwxOC41LDAsMCwxLDEuNjcsOC4yNSwxNi45MSwxNi45MSwwLDAsMS0xLjYyLDcuNTgsMTYuMywxNi4zLDAsMCwxLTQuMzgsNS41LDE5LjI0LDE5LjI0LDAsMCwxLTYuMzUsMy4zNywyNC41MywyNC41MywwLDAsMS03LjU1LDEuMTVIODkuMTRabTcuOCwyOC4yaDRhMjEuNjYsMjEuNjYsMCwwLDAsNS0uNTVBMTAuNTgsMTAuNTgsMCwwLDAsMTEwLDI2YTguNzMsOC43MywwLDAsMCwyLjY4LTMuMzUsMTEuOSwxMS45LDAsMCwwLDEtNS4wOCw5Ljg3LDkuODcsMCwwLDAtMS00LjUyLDkuMTcsOS4xNywwLDAsMC0yLjYzLTMuMThBMTEuNjEsMTEuNjEsMCwwLDAsMTA2LjIyLDhhMTcuMDYsMTcuMDYsMCwwLDAtNC42OC0uNjNoLTQuNlpNMTMzLjA5LjEyaDEzLjJhMzIuODcsMzIuODcsMCwwLDEsNC42My4zMywxMi42NiwxMi42NiwwLDAsMSw0LjE3LDEuMyw3Ljk0LDcuOTQsMCwwLDEsMywyLjcyLDguMzQsOC4zNCwwLDAsMSwxLjE1LDQuNjUsNy40OCw3LjQ4LDAsMCwxLTEuNjcsNSw5LjEzLDkuMTMsMCwwLDEtNC40MywyLjgyVjE3YTEwLjI4LDEwLjI4LDAsMCwxLDMuMTgsMSw4LjUxLDguNTEsMCwwLDEsMi40NSwxLjg1LDcuNzksNy43OSwwLDAsMSwxLjU3LDIuNjIsOS4xNiw5LjE2LDAsMCwxLC41NSwzLjIsOC41Miw4LjUyLDAsMCwxLTEuMiw0LjY4LDkuMzIsOS4zMiwwLDAsMS0zLjEsM0ExMy4zOCwxMy4zOCwwLDAsMSwxNTIuMzIsMzVhMjIuNSwyMi41LDAsMCwxLTQuNzMuNWgtMTQuNVptNy44LDE0LjE1aDUuNjVhNy42NSw3LjY1LDAsMCwwLDEuNzgtLjIsNC43OCw0Ljc4LDAsMCwwLDEuNTctLjY1LDMuNDMsMy40MywwLDAsMCwxLjEzLTEuMiwzLjYzLDMuNjMsMCwwLDAsLjQyLTEuOEEzLjMsMy4zLDAsMCwwLDE1MSw4LjZhMy40MiwzLjQyLDAsMCwwLTEuMjMtMS4xM0E2LjA3LDYuMDcsMCwwLDAsMTQ4LDYuOWE5LjksOS45LDAsMCwwLTEuODUtLjE4aC01LjNabTAsMTQuNjVoN2E4LjI3LDguMjcsMCwwLDAsMS44My0uMiw0LjY3LDQuNjcsMCwwLDAsMS42Ny0uNywzLjkzLDMuOTMsMCwwLDAsMS4yMy0xLjMsMy44LDMuOCwwLDAsMCwuNDctMS45NSwzLjE2LDMuMTYsMCwwLDAtLjYyLTIsNCw0LDAsMCwwLTEuNTgtMS4xOCw4LjIzLDguMjMsMCwwLDAtMi0uNTUsMTUuMTIsMTUuMTIsMCwwLDAtMi4wNS0uMTVoLTUuOVoiLz48L2c+PC9nPjwvc3ZnPg=="
+          /><span
+            >This product uses the TMDB API but is not endorsed or certified by TMDB.<br />Marca de
+            la app prioritaria; TMDB permanece como fuente secundaria.</span
+          >
+        </div>
+        <div class="version">
+          Mi Cartelera Personal · Propuesta 01<br />25 de noviembre de 2026<br />Brief → Brand board
+          → DESIGN.md → Tokens
+        </div>
+      </footer>
+    </main>
+    <script>
+      const modes = document.querySelectorAll('[data-mode]');
+      for (const button of modes) {
+        button.addEventListener('click', () => {
+          const mode = button.dataset.mode;
+          for (const b of modes) b.setAttribute('aria-pressed', String(b === button));
+          document.querySelector('#annual-data').classList.toggle('hidden', mode === 'empty');
+          document.querySelector('#phone-empty').classList.toggle('hidden', mode !== 'empty');
+          document.querySelector('#offline-note').classList.toggle('hidden', mode !== 'offline');
+          document.querySelector('#partial-note').classList.toggle('hidden', mode !== 'partial');
+        });
+      }
+      document.querySelector('#phone-year').addEventListener('change', (event) => {
+        document.querySelector('.phone-subtitle').textContent =
+          `Cada historia deja una huella. · ${event.target.value}`;
+      });
+    </script>
+  </body>
+</html>

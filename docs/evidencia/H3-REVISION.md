@@ -1,6 +1,6 @@
 # Revisión de dominio y datos preparada
 
-Fecha: 25 de noviembre de 2026. Estado: cambios de dominio/datos preparados y comprobados, todavía sin commits nuevos para estas fases. La spec y los tests tienen pendiente la revisión solicitada al estudiante. No hay interfaz anual implementada ni reglas productivas publicadas.
+Registro del estado previo a la revisión del estudiante, conservado como evidencia histórica. Fecha: 25 de noviembre de 2026. Estado: cambios de dominio/datos preparados y comprobados, todavía sin commits nuevos para estas fases. La spec y los tests tienen pendiente la revisión solicitada al estudiante. No hay interfaz anual implementada ni reglas productivas publicadas.
 
 ## Evidencia roja anterior a la implementación
 
@@ -44,3 +44,7 @@ La revisión humana de los cambios precede a sus commits. Los commits de documen
 ## Pendiente de ejecución real
 
 Comprobar el proyecto en Expo Go, publicar las reglas en el Firebase propio del estudiante, probar dos cuentas reales, capturar un documento con los nuevos campos y completar docs/VERIFICACION.md a mano. Nada de lo anterior se da por hecho por haber pasado el emulador.
+
+## Actualización después de la aprobación
+
+El estudiante aprobó explícitamente spec, tests y orden de implementación. Se registraron primero el commit docs e82a969 y después los tests rojos 141aaa3. Luego se completó dominio/datos, centralización de colores y la interfaz H4. npm test ahora pasa completo: 82 tests Vitest y 11 originales de Node. TypeScript y lint pasan. Ver H4-tests-verde.txt y el informe de revisión final. Las reglas productivas y las pruebas personales siguen pendientes; no se ha confirmado el código nuevo sin su revisión humana final.

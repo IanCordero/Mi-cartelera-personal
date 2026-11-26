@@ -1,6 +1,6 @@
 # Spec 01 · Mi año en cine
 
-Estado: preparada a partir del PRD, backlog y diseño revisados. Ticket paraguas: T-06. Este documento y los tests se guardan antes de implementar dominio/datos/interfaz. No se atribuye al docente la resolución de los puntos abiertos del PRD.
+Estado: spec, tests y plan de interfaz aprobados por el estudiante: «Apruebo la spec, los tests y ese orden de implementación». Ticket paraguas: T-06. Este documento y los tests se guardan antes de implementar dominio/datos/interfaz. No se atribuye al docente la resolución de los puntos abiertos del PRD.
 
 ## Alcance y fuera de alcance
 
@@ -115,4 +115,4 @@ Las reglas productivas y el push dependen de acceso autorizado al proyecto/cuent
 
 ### Ajuste de orden propuesto para el sensor
 
-La centralización de los colores legados se hará junto a la creación de tokens en T-13/H3, para poder pasar npm test antes de confirmar el código de dominio/datos. La adopción completa de escalas y la nueva interfaz siguen en H4. Así se conserva la evidencia roja sin desactivar un sensor ni mantener un commit funcional con tests fallando. Este ajuste se presentó al estudiante para revisión.
+La centralización de los colores legados se hará junto a la creación de tokens en T-13/H3, para poder pasar npm test antes de confirmar el código de dominio/datos. La adopción completa de escalas y la nueva interfaz siguen en H4. Así se conserva la evidencia roja sin desactivar un sensor ni mantener un commit funcional con tests fallando. Este ajuste fue aprobado explícitamente por el estudiante junto a la spec y el plan.

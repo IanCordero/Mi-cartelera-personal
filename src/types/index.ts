@@ -2,11 +2,11 @@ export type EstadoVisto = 'por_ver' | 'viendo' | 'vista';
 export type TipoMedio = 'movie' | 'tv';
 export type Usuario = { uid: string; email: string | null };
 export type EstadoPeticion<T> =
-  | { tipo: 'cargando' }
-  | { tipo: 'error'; mensaje: string }
-  | { tipo: 'exito'; datos: T };
+  { tipo: 'cargando' } | { tipo: 'error'; mensaje: string } | { tipo: 'exito'; datos: T };
 export const ETIQUETA_ESTADO: Record<EstadoVisto, string> = {
-  por_ver: 'Por ver', viendo: 'Viendo', vista: 'Vista',
+  por_ver: 'Por ver',
+  viendo: 'Viendo',
+  vista: 'Vista',
 };
 export interface Obra {
   tmdbId: number;
@@ -15,7 +15,17 @@ export interface Obra {
   anio: string;
   posterPath: string | null;
 }
+export interface MetadatosObra {
+  generos: string[];
+  duracionMin: number | null;
+  directores: string[];
+}
 export interface ItemLista extends Obra {
+  // Opcionales para aceptar documentos y cachés anteriores a la épica.
+  vistaEn?: string | null;
+  generos?: string[];
+  duracionMin?: number | null;
+  directores?: string[];
   id: string;
   estado: EstadoVisto;
   calificacionPersonal: number | null;
@@ -25,7 +35,12 @@ export interface ItemLista extends Obra {
   actualizadoEn: string;
 }
 export type CambiosEntrada = Pick<ItemLista, 'estado' | 'calificacionPersonal' | 'comentario'>;
-export interface Actor { id: number; name: string; character: string; profile_path: string | null }
+export interface Actor {
+  id: number;
+  name: string;
+  character: string;
+  profile_path: string | null;
+}
 export interface DetalleObra extends Obra {
   sinopsis: string;
   puntuacion: number;
@@ -33,8 +48,15 @@ export interface DetalleObra extends Obra {
   generos: string[];
   duracion: number | null;
   elenco: Actor[];
+  duracionMin: number | null;
+  directores: string[];
 }
-export interface ResultadoBusqueda { resultados: Obra[]; pagina: number; totalPaginas: number; totalResultados: number }
+export interface ResultadoBusqueda {
+  resultados: Obra[];
+  pagina: number;
+  totalPaginas: number;
+  totalResultados: number;
+}
 export interface ResultadoTmdb {
   id: number;
   media_type?: string;
@@ -44,7 +66,12 @@ export interface ResultadoTmdb {
   first_air_date?: string;
   poster_path?: string | null;
 }
-export interface BusquedaTmdb { page: number; total_pages: number; total_results: number; results: ResultadoTmdb[] }
+export interface BusquedaTmdb {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: ResultadoTmdb[];
+}
 export interface DetalleTmdb extends ResultadoTmdb {
   overview?: string;
   vote_average: number;
@@ -52,7 +79,7 @@ export interface DetalleTmdb extends ResultadoTmdb {
   genres: { id: number; name: string }[];
   runtime?: number;
   episode_run_time?: number[];
-  credits?: { cast: Actor[] };
+  credits?: { cast?: Actor[]; crew?: { id: number; name: string; job: string }[] };
 }
 export interface ConfiguracionTmdb {
   images: { secure_base_url: string; poster_sizes: string[]; profile_sizes: string[] };

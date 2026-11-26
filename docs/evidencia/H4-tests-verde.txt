@@ -1,0 +1,38 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> mi-cartelera-personal@1.0.0 test
+> vitest run && npm run test:legado
+
+
+ RUN  v5.1.2 /workspace/scratch/618ae1361921/mi-anio-en-cine
+
+
+ Test Files  8 passed (8)
+      Tests  82 passed (82)
+   Start at  23:22:51
+   Duration  291ms (transform 36%, import 31%, tests 23%, worker 9%)
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> mi-cartelera-personal@1.0.0 test:legado
+> node --import tsx --test tests/validation.test.ts tests/tmdb.test.ts
+
+✔ búsqueda filtra personas, conserva tipo y contempla datos faltantes (4.057647ms)
+✔ detalle incluye credits en una sola petición y tolera sinopsis, póster y elenco ausentes (1.217179ms)
+✔ sin consulta no envía peticiones (0.158174ms)
+✔ TMDB 401 y 429 producen mensajes útiles (0.682299ms)
+✔ película y serie con el mismo número tienen identidades distintas (0.858168ms)
+✔ las estrellas solo se permiten en Vista y deben ser enteras de 1 a 5 (0.310539ms)
+✔ comentario acepta 500 puntos Unicode, rechaza 501 y no confunde emojis con dos caracteres (0.168209ms)
+✔ no se acepta una caché corrupta o con id/calificación inválidos (0.321055ms)
+✔ credenciales se validan sin alterar la contraseña (0.251732ms)
+✔ errores de Firebase se traducen y no exponen el mensaje interno (0.205404ms)
+✔ un tiempo máximo rechaza sin esperar indefinidamente (6.150531ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.18839

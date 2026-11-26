@@ -1,0 +1,21 @@
+PASS año actual inicial y estado vacío
+PASS migración previa no pide TMDB para otros años
+PASS totales incluyen película cuyo TMDB falló
+PASS una petición TMDB activa como máximo
+PASS solo se enriquece el año seleccionado
+PASS horas solo de películas con datos completos
+PASS doce barras accesibles incluidas las de cero
+PASS sin desbordamiento horizontal
+PASS fecha heredada exacta y opinión preservada
+PASS migra fechas de todos los años sin enriquecer otro año
+PASS reintenta solo metadatos pendientes
+PASS metadatos preservan edición concurrente de otro dispositivo
+PASS pestañas permanecen en pantalla al desplazar el resumen
+PASS editar comentario desde destacada conserva fecha
+PASS no vuelve a pedir datos completos
+PASS offline calcula otro año con caché y sin petición
+PASS AsyncStorage guarda copia privada con fechas y metadatos
+PASS cuenta B no muestra resumen de A
+PASS error sin copia se distingue del año vacío
+PASS reintento recupera el resumen tras error inicial
+PASS sin errores de ejecución de JavaScript

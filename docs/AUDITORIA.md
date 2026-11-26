@@ -64,7 +64,24 @@ Estas puertas provienen del enunciado del docente, no de una limitación del pro
 
 ## Cierre
 
-Pendiente: no hay auditoría final de una épica que todavía no se ha implementado. Se añadirá al terminar la verificación correspondiente, conservando esta sección inicial.
+Cierre técnico: 25 de noviembre de 2026. La épica está implementada y comprobada automáticamente; su acreditación en teléfono y producción queda pendiente. El estudiante aprobó la auditoría, el sistema visual y después la spec/tests/plan. El diff final del código se presenta antes de confirmarlo.
+
+| Hallazgo | Resultado de cierre                                                                             | Evidencia                                                                        |
+| -------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| A-01     | Resuelto: referencia reconstruida y claramente identificada                                     | SPEC.md y commit a47b34e                                                         |
+| A-02     | Harness implementado; ejecución dentro de Claude Code pendiente                                 | AGENTS, CLAUDE, .claude, Vitest; H1-VERIFICACION                                 |
+| A-03     | Resuelto técnicamente: fecha y metadatos compatibles con documentos anteriores                  | dominio, listaService, tmdbService; pruebas y recorrido emulado                  |
+| A-04     | Reglas adaptadas y 15 pruebas emuladas aprobadas; publicación real pendiente                    | firestore.rules, tests/firestore.rules.test.mjs                                  |
+| A-05     | Resuelto en código de interfaz: tokens, migración y sensor verde                                | src/tema y H4-tests-verde; app.json conserva configuración nativa estática de P3 |
+| A-06     | Compatibilidad de documentos antiguos comprobada; corrupción real mantiene aviso/copia          | normalización y lectura validada; recorrido con cuatro documentos legados        |
+| A-07     | Riesgo controlado: bloqueo hasta respuesta real, conciliación y guardas                         | Context.prepararAnio, preparación secuencial y tests de timeout/cancelación      |
+| A-08     | Campos de metadatos normalizados; decoder completo sigue fuera de alcance                       | dominio/metadatos, tests TMDB; datos no confiables depurados                     |
+| A-09     | Pendiente acreditación del estudiante                                                           | VERIFICACION: teléfono, Firebase propio, capturas y demo                         |
+| A-10     | Resuelto para pares y código aprobados; accesibilidad real con lector/tamaño de letra pendiente | tokens.test, doce barras etiquetadas, controles ≥44                              |
+
+Hallazgos nuevos: el nombre accesible de las pestañas en web incluía los glifos de los iconos; se añadieron etiquetas explícitas. Se distinguió el error sin copia del año vacío y se comprobó su reintento. Las capturas nuevas proceden de navegador móvil con servicios emulados y datos ficticios: no se presentan como Expo Go ni consola productiva.
+
+Riesgos y pendientes: servidor TMDB real puede devolver datos ausentes y no se ha usado un token privado en esta sesión; listas con corrupción real no se reparan automáticamente; un timeout no puede retirar una transacción enviada. GitHub no tiene autenticación de escritura en este entorno, así que no hay push ni publicación de reglas. El historial conserva P3 y documentos/tests antes de implementar; la revisión final del estudiante precederá al commit de código. Solo el estudiante puede completar los resultados obtenidos en teléfono y acreditar /context, /hooks y /commit en Claude Code.
 
 ## Registro de revisión H1
 

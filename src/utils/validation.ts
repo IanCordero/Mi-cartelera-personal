@@ -1,3 +1,4 @@
+import { duracionValida, listaNombresValida } from '../dominio/metadatos';
 import { CambiosEntrada, ItemLista, Obra } from '../types';
 
 export function itemId(obra: Pick<Obra, 'tipo' | 'tmdbId'>): string {
@@ -7,17 +8,27 @@ export function itemId(obra: Pick<Obra, 'tipo' | 'tmdbId'>): string {
   return `${obra.tipo}_${obra.tmdbId}`;
 }
 export function validarCambios(cambios: CambiosEntrada): void {
-  if (!['por_ver', 'viendo', 'vista'].includes(cambios.estado)) throw new Error('Selecciona un estado válido.');
+  if (!['por_ver', 'viendo', 'vista'].includes(cambios.estado))
+    throw new Error('Selecciona un estado válido.');
   if (typeof cambios.comentario !== 'string' || [...cambios.comentario].length > 500) {
     throw new Error('El comentario admite hasta 500 caracteres.');
   }
-  if (cambios.calificacionPersonal !== null && (
-    cambios.estado !== 'vista' || !Number.isInteger(cambios.calificacionPersonal) ||
-    cambios.calificacionPersonal < 1 || cambios.calificacionPersonal > 5
-  )) throw new Error('Solo puedes calificar una obra vista, con 1 a 5 estrellas.');
+  if (
+    cambios.calificacionPersonal !== null &&
+    (cambios.estado !== 'vista' ||
+      !Number.isInteger(cambios.calificacionPersonal) ||
+      cambios.calificacionPersonal < 1 ||
+      cambios.calificacionPersonal > 5)
+  )
+    throw new Error('Solo puedes calificar una obra vista, con 1 a 5 estrellas.');
 }
-export function validarCredenciales(email: string, clave: string, registro: boolean): string | null {
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return 'Escribe un correo electrónico válido.';
+export function validarCredenciales(
+  email: string,
+  clave: string,
+  registro: boolean,
+): string | null {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
+    return 'Escribe un correo electrónico válido.';
   if (!clave) return 'Escribe tu contraseña.';
   if (registro && clave.length < 6) return 'La contraseña debe tener al menos 6 caracteres.';
   return null;
@@ -25,12 +36,46 @@ export function validarCredenciales(email: string, clave: string, registro: bool
 export function esItemLista(value: unknown): value is ItemLista {
   if (!value || typeof value !== 'object') return false;
   const v = value as Record<string, unknown>;
-  if (typeof v.tmdbId !== 'number' || !Number.isInteger(v.tmdbId) || v.tmdbId <= 0 ||
-      !['movie', 'tv'].includes(String(v.tipo)) || v.id !== `${v.tipo}_${v.tmdbId}` ||
-      typeof v.titulo !== 'string' || !v.titulo || [...v.titulo].length > 200 ||
-      typeof v.anio !== 'string' || !/^(\d{4})?$/.test(v.anio) ||
-      !(v.posterPath === null || typeof v.posterPath === 'string') ||
-      typeof v.agregadoEn !== 'string' || !Number.isFinite(Date.parse(v.agregadoEn)) ||
-      typeof v.actualizadoEn !== 'string' || !Number.isFinite(Date.parse(v.actualizadoEn))) return false;
-  try { validarCambios(v as unknown as CambiosEntrada); return true; } catch { return false; }
+  if (
+    typeof v.tmdbId !== 'number' ||
+    !Number.isInteger(v.tmdbId) ||
+    v.tmdbId <= 0 ||
+    !['movie', 'tv'].includes(String(v.tipo)) ||
+    v.id !== `${v.tipo}_${v.tmdbId}` ||
+    typeof v.titulo !== 'string' ||
+    !v.titulo ||
+    [...v.titulo].length > 200 ||
+    typeof v.anio !== 'string' ||
+    !/^(\d{4})?$/.test(v.anio) ||
+    !(v.posterPath === null || typeof v.posterPath === 'string') ||
+    typeof v.agregadoEn !== 'string' ||
+    !Number.isFinite(Date.parse(v.agregadoEn)) ||
+    typeof v.actualizadoEn !== 'string' ||
+    !Number.isFinite(Date.parse(v.actualizadoEn))
+  )
+    return false;
+  if (
+    v.vistaEn !== undefined &&
+    v.vistaEn !== null &&
+    (v.estado !== 'vista' ||
+      typeof v.vistaEn !== 'string' ||
+      !Number.isFinite(Date.parse(v.vistaEn)))
+  )
+    return false;
+  if (v.generos !== undefined && !listaNombresValida(v.generos)) return false;
+  if (v.directores !== undefined && !listaNombresValida(v.directores)) return false;
+  if (v.duracionMin !== undefined && v.duracionMin !== null && !duracionValida(v.duracionMin))
+    return false;
+  if (
+    v.tipo === 'tv' &&
+    ((v.duracionMin !== undefined && v.duracionMin !== null) ||
+      (Array.isArray(v.directores) && v.directores.length > 0))
+  )
+    return false;
+  try {
+    validarCambios(v as unknown as CambiosEntrada);
+    return true;
+  } catch {
+    return false;
+  }
 }

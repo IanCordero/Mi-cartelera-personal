@@ -1,6 +1,6 @@
 # PRD · Mi año en cine
 
-Estado: propuesta para revisión del estudiante. Versión 1.0 · 25 de noviembre de 2026. Fuente de las decisiones de negocio: enunciado del docente. Base: Proyecto 3, commit p3-final. Este documento precede a la implementación de la épica.
+Estado: PRD revisado y aprobado por el estudiante en Hito 2. Versión 1.0 · 25 de noviembre de 2026. Fuente de las decisiones de negocio: enunciado del docente. Base: Proyecto 3, commit p3-final. Este documento precede a la implementación de la épica.
 
 ## Problema y propósito
 

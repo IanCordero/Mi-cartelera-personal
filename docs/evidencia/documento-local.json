@@ -1,0 +1,21 @@
+{
+  "procedencia": "Firestore Emulator, cuenta ficticia; no es Firebase de producción",
+  "tmdbId": 101,
+  "tipo": "movie",
+  "titulo": "Historia 101",
+  "anio": "2020",
+  "posterPath": null,
+  "estado": "vista",
+  "calificacionPersonal": 5,
+  "comentario": "Comentario original 101",
+  "agregadoEn": "2025-01-02T12:00:00.000Z",
+  "vistaEn": "2025-01-02T12:00:00.000Z",
+  "generos": [
+    "Drama"
+  ],
+  "directores": [
+    "Directora local"
+  ],
+  "duracionMin": 90,
+  "actualizadoEn": "2026-11-26T04:26:45.352Z"
+}

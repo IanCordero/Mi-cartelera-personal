@@ -1,6 +1,6 @@
 # Épica A · Mi año en cine
 
-Estado: propuesta Hito 2, pendiente de revisión del estudiante. Fuente de negocio: PRD y decisiones D1–D13 del docente. No hay implementación nueva de la épica en este hito.
+Estado: backlog del Hito 2 revisado y aprobado por el estudiante. Fuente de negocio: PRD y decisiones D1–D13 del docente. No hay implementación nueva de la épica en este hito.
 
 ## Objetivo
 
